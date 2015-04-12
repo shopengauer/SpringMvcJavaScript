@@ -4,7 +4,10 @@
        xmlns:mvc="http://www.springframework.org/schema/mvc"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd
-        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
     <context:component-scan base-package="org.pavlov.mvc.springjavascript"/>
     <mvc:annotation-driven/>
@@ -12,6 +15,10 @@
         <!--<property name="prefix" value="/WEB-INF/pages/"/>-->
         <!--<property name="suffix" value=".jsp"/>-->
     <!--</bean>-->
+    <mvc:resources mapping="/**" location="/resources/"/>
+    <mvc:resources location="/resources/css/" mapping="/**"/>
+    <mvc:resources location="/resources/js/" mapping="/js/**"/>
+    <!--<mvc:resources mapping="/resources/**" location="/resources/" />-->
 
     <bean id="templateResolver" class="org.thymeleaf.templateresolver.ServletContextTemplateResolver">
         <property name="prefix" value="/WEB-INF/templates"/>
